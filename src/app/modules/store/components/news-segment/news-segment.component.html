@@ -3,11 +3,8 @@
     اخبار کتاب
   </div>
   <div class="card-body">
-    <app-news-card/>
-    <app-news-card/>
-    <app-news-card/>
-    <app-news-card/>
-    <app-news-card/>
+
+    <app-news-card *ngFor="let news of newses" [data]="news"/>
   </div>
   <div class="card-footer text-body-secondary">
     2 days ago
