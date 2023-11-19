@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-10">
       <div class="card-body " >
-        <h5 class="card-title ps-3" ><a [routerLink]="['/news',1]">{{data.title}}</a></h5>
+        <h5 class="card-title ps-3" ><a [routerLink]="['/news',data.id]">{{data.title}}</a></h5>
         <p class="card-text"> {{data.content}}</p>
         <p class="card-text"><small class="text-body-secondary">Last updated {{data.createdAt}}</small></p>
       </div>

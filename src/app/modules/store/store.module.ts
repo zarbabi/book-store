@@ -7,6 +7,7 @@ import { BooksSegmentComponent } from './components/books-segment/books-segment.
 import { NewsCardComponent } from './components/news-card/news-card.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { StoreLayoutComponent } from './components/store-layout/store-layout.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 const routes:Routes=[{
@@ -28,7 +29,8 @@ const routes:Routes=[{
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    HttpClientModule
   ]
 })
 export class StoreModule { }

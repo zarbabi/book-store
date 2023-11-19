@@ -1,15 +1,21 @@
 <div class="card">
   <div class="card-header">
-    Quote
+  {{item?.title}}
   </div>
   <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <img src="https://www.soorban.com/images/news/2021/12/1639652514_E9zJ1.jpg" class="img-thumbnail m-3 rounded-start" style="max-width:400px">
+    <ng-container *ngIf="item">
+      <blockquote class="blockquote mb-0">
+        <img src="{{item.image}}" class="img-thumbnail m-3 rounded-start" style="max-width:400px">
 
-      <h5 class="card-title ps-3" >Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title ps-3" >{{item.title}}</h5>
+        <p class="card-text"> {{item.content}}</p>
+        <br/>
+        <footer class="blockquote-footer"><cite title="Source Title">Last updated {{item.createdAt}}</cite></footer>
+      </blockquote>
+    </ng-container>
+    <ng-container *ngIf="!item">
+      Loading ...
+    </ng-container>
 
-      <footer class="blockquote-footer"><cite title="Source Title">Last updated 3 mins ago</cite></footer>
-    </blockquote>
   </div>
 </div>
