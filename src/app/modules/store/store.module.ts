@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {createComponent, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StorePageComponent } from './pages/store-page/store-page.component';
 import {RouterModule, Routes} from "@angular/router";
@@ -6,11 +6,16 @@ import { NewsSegmentComponent } from './components/news-segment/news-segment.com
 import { BooksSegmentComponent } from './components/books-segment/books-segment.component';
 import { NewsCardComponent } from './components/news-card/news-card.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
+import { StoreLayoutComponent } from './components/store-layout/store-layout.component';
 
-const routes:Routes=[
-  {path:'' ,component:StorePageComponent},
-  {path:'news/:id' ,component:NewsPageComponent}
-]
+
+const routes:Routes=[{
+  path:'', component:StoreLayoutComponent,
+  children: [
+    {path:'' ,component:StorePageComponent},
+    {path:'news/:id' ,component:NewsPageComponent}
+  ] }
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +23,8 @@ const routes:Routes=[
     NewsSegmentComponent,
     BooksSegmentComponent,
     NewsCardComponent,
-    NewsPageComponent
+    NewsPageComponent,
+    StoreLayoutComponent
   ],
   imports: [
     CommonModule,
