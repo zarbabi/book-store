@@ -1,30 +1,44 @@
-<p>cart-page works!</p>
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">شماره کتاب</th>
-    <th scope="col">تعداد</th>
-    <th scope="col">تنظیمات</th>
+<div class="card text-center">
+  <div class="card-header">
+    سبد خرید
+  </div>
+  
+  <div class="card-body">
+    <ng-container *ngIf="lines.length">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">تصویر</th>
+          <th scope="col">شماره کتاب</th>
+          <th scope="col">نام کتاب</th>
+          <th scope="col">قیمت واحد</th>
+          <th scope="col">تعداد</th>
+          <th scope="col">قیمت</th>
+          <th scope="col">تنظیمات</th>
 
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let line of lines; index as i ">
-    <th scope="row"> {{i+1}} </th>
-    <td>{{line.bookId}}</td>
-    <td>{{line.count}}</td>
-    <td> <button  class="btn btn-danger btn-sm" type="button" (click)="delete(line.bookId)">حذف</button></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let line of lines; index as i ">
+          <th scope="row"> {{i + 1}} </th>
+          <th><img alt="" class="img-thumbnail" src="{{getBook(line.bookId).image}}" style="height: 70px"></th>
+          <td>{{line.bookId}}</td>
+          <td>{{getBook(line.bookId).title}}</td>
+          <td>{{getBook(line.bookId).price}}</td>
+          <td>{{line.count}}</td>
+          <td>{{getBook(line.bookId).price * line.count}} </td>
+          <td>
+            <button (click)="delete(line.bookId)" class="btn btn-danger btn-sm" type="button">حذف</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </ng-container>
 
-  </tr>
-  <tr>
-    <th scope="row" ></th>
-    <td colspan="2">مجموع قیمت</td>
 
-  </tr>
-
-<!--  <ng-container *ngIf="!item">-->
-<!--    Loading ...-->
-<!--  </ng-container>-->
-  </tbody>
-</table>
+    <ng-container *ngIf="!lines.length">
+      سبد خرید خالی است!
+    </ng-container>
+  </div>
+</div>

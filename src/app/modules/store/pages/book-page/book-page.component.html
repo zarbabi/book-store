@@ -1,33 +1,28 @@
-<p>book-page works!</p>
-<div class="card-header">
-  {{item?.title}}
-</div>
+<br/>
+
 <div class="card-body">
   <ng-container *ngIf="item">
-    <blockquote class="blockquote mb-0">
-      <img src="" class="img-thumbnail m-3 rounded-start" style="max-width:400px">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <blockquote class="blockquote mb-0 ">
+          <img class="img-thumbnail m-3 rounded-start" src="{{item.image}}" style="max-width:200px"></blockquote>
+      </div>
 
-      <h5 class="card-title ps-3" >{{item.title}}</h5>
-      <p class="card-text"> {{item.description}}</p>
-      <br/>
-      <footer class="blockquote-footer"><cite title="Source Title">Last updated </cite></footer>
-    </blockquote>
+      <div class="col-md-7">
+        <br/>
+        <br/>
+        <h5 class="card-title ps-3">{{item.title}}</h5>
+        <br/>
+        <p class="card-text"> {{item.description}}</p>
+        <p class="card-text">قیمت: {{item.price}} تومان</p>
+        <br/>
+        <footer class="blockquote-footer"><cite title="Source Title">نویسنده: {{item.author}} </cite></footer>
+      </div>
+    </div>
   </ng-container>
   <ng-container *ngIf="!item">
-    Loading ...
+    صفحه مورد نظر پیدا نشد!
   </ng-container>
-
-<ng-container *ngIf="item?.id==30">
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" [routerLink]="['/book',item?.id]">Previous</a></li>
-      <li class="page-item"><a class="page-link" [routerLink]="['/book',1]">1</a></li>
-      <li class="page-item"><a class="page-link" [routerLink]="['/book',2]">2</a></li>
-      <li class="page-item"><a class="page-link" [routerLink]="['/book',3]">3</a></li>
-      <li class="page-item"><a class="page-link" [routerLink]="['/book',item?.id]">Next</a></li>
-    </ul>
-  </nav>
-</ng-container>
 
 
 </div>

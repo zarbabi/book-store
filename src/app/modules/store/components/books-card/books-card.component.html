@@ -1,9 +1,9 @@
-<div class="card mb-3" style="width: 18rem;">
+<div class="card mb-3" >
   <div class="card-body">
     <h5 class="card-title">{{data.title}}</h5>
     <p class="card-text">{{data.description}}</p>
-    <button [routerLink]="['/book',data.id]" class="btn btn-secondary btn-sm" type="button"> اطلاعات بیشتر</button>
-    <button (click)="basketService.add(data.id)" class="btn btn-primary btn-sm" type="button">افزودن به سبد خرید
+    <button [routerLink]="['/book',data.id]" class="btn btn-secondary btn-sm " type="button"> اطلاعات بیشتر</button>
+    <button (click)="basketService.add(data.id)" class="btn btn-primary btn-sm ms-3" type="button">افزودن به سبد
     </button>
 
   </div>

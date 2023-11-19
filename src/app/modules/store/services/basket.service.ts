@@ -8,6 +8,9 @@ import {count} from "rxjs";
 export class BasketService {
 
   constructor() {
+    if (localStorage.getItem('basket')) {
+     this.basketLine = JSON.parse(localStorage.getItem('basket')!) as BasketLine[];
+    }
   }
 
   basketLine: BasketLine[] = [];
@@ -18,17 +21,28 @@ export class BasketService {
       existBook.count++;
     else
       this.basketLine.push({bookId, count: 1});
+
+
+    this.save();
   }
 
   delete(bookId: number) {
     const index = this.basketLine.findIndex(x => x.bookId == bookId);
     this.basketLine.splice(index, 1);
+    this.save();
   }
 
   all(): BasketLine[] {
     return this.basketLine;
+
   }
-  count():number{
+
+  count(): number {
     return this.basketLine.length;
+  }
+
+  save() {
+    localStorage.setItem('basket', JSON.stringify(this.basketLine));
+
   }
 }

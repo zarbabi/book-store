@@ -11,14 +11,6 @@ import {BooksService} from "../../services/books.service";
 export class BooksSegmentComponent {
 books:Book[]=[];
 constructor( bookServices:BooksService ) {
-  this.books = bookServices.getLastBooks(3);
-  // newHttpService.getLastBooks().subscribe(data=>{
-  //   this.books = data.map(x =>({
-  //     id: x.id,
-  //     title:x.title,
-  //     description:x.body
-  //
-  //   }))
-  // })
+  this.books = bookServices.getLastBooks(4);
 }
 }
