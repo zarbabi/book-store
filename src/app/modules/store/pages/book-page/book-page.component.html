@@ -1,0 +1,33 @@
+<p>book-page works!</p>
+<div class="card-header">
+  {{item?.title}}
+</div>
+<div class="card-body">
+  <ng-container *ngIf="item">
+    <blockquote class="blockquote mb-0">
+      <img src="" class="img-thumbnail m-3 rounded-start" style="max-width:400px">
+
+      <h5 class="card-title ps-3" >{{item.title}}</h5>
+      <p class="card-text"> {{item.description}}</p>
+      <br/>
+      <footer class="blockquote-footer"><cite title="Source Title">Last updated </cite></footer>
+    </blockquote>
+  </ng-container>
+  <ng-container *ngIf="!item">
+    Loading ...
+  </ng-container>
+
+<ng-container *ngIf="item?.id==30">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" [routerLink]="['/book',item?.id]">Previous</a></li>
+      <li class="page-item"><a class="page-link" [routerLink]="['/book',1]">1</a></li>
+      <li class="page-item"><a class="page-link" [routerLink]="['/book',2]">2</a></li>
+      <li class="page-item"><a class="page-link" [routerLink]="['/book',3]">3</a></li>
+      <li class="page-item"><a class="page-link" [routerLink]="['/book',item?.id]">Next</a></li>
+    </ul>
+  </nav>
+</ng-container>
+
+
+</div>

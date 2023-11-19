@@ -19,7 +19,8 @@ this.item={
   title:value.title,
   content:value.body,
   image:'https://www.soorban.com/images/news/2021/12/1639652514_E9zJ1.jpg',
-  createdAt:'11-11-2023'
+  createdAt:'11-11-2023',
+  price:200
 }
     }))
 

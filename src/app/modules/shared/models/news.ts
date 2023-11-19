@@ -4,4 +4,5 @@ export interface News {
   content:string;
   image:string;
   createdAt:string;
+  price:number;
 }

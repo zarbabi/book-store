@@ -1,14 +1,16 @@
-<div class="card mb-3" >
+<div class="card mb-3">
   <div class="row g-0">
     <div class="col-md-2">
-      <img src="https://www.soorban.com/images/news/2021/12/1639652514_E9zJ1.jpg" class="img-thumbnail m-3 rounded-start" >
+      <img class="img-thumbnail m-3 rounded-start"
+           src="https://www.soorban.com/images/news/2021/12/1639652514_E9zJ1.jpg">
     </div>
     <div class="col-md-10">
-      <div class="card-body " >
-        <h5 class="card-title ps-3" ><a [routerLink]="['/news',data.id]">{{data.title}}</a></h5>
+      <div class="card-body ">
+        <h5 class="card-title ps-3"><a [routerLink]="['/news',data.id]">{{data.title}}</a></h5>
         <p class="card-text"> {{data.content}}</p>
         <p class="card-text"><small class="text-body-secondary">Last updated {{data.createdAt}}</small></p>
       </div>
     </div>
   </div>
 </div>
+

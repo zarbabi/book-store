@@ -8,13 +8,18 @@ import { NewsCardComponent } from './components/news-card/news-card.component';
 import { NewsPageComponent } from './pages/news-page/news-page.component';
 import { StoreLayoutComponent } from './components/store-layout/store-layout.component';
 import {HttpClientModule} from "@angular/common/http";
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { BooksCardComponent } from './components/books-card/books-card.component';
+import { BookPageComponent } from './pages/book-page/book-page.component';
 
 
 const routes:Routes=[{
   path:'', component:StoreLayoutComponent,
   children: [
     {path:'' ,component:StorePageComponent},
-    {path:'news/:id' ,component:NewsPageComponent}
+    {path:'news/:id' ,component:NewsPageComponent},
+    {path:'cart', component:CartPageComponent},
+    {path:'book/:id', component:BookPageComponent},
   ] }
 ];
 
@@ -25,7 +30,10 @@ const routes:Routes=[{
     BooksSegmentComponent,
     NewsCardComponent,
     NewsPageComponent,
-    StoreLayoutComponent
+    StoreLayoutComponent,
+    CartPageComponent,
+    BooksCardComponent,
+    BookPageComponent
   ],
   imports: [
     CommonModule,
