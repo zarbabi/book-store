@@ -26,6 +26,20 @@ export class BasketService {
     this.save();
   }
 
+  addedOne(bookId:number){
+    const countBook =this.basketLine.find(x=>x.bookId==bookId)!;
+      countBook.count++;
+
+    this.save();
+  }
+  deleteOne(bookId:number){
+    const countBook =this.basketLine.find(x=>x.bookId==bookId)!;
+    if ( countBook.count>1)
+      countBook.count--;
+    else
+      this.delete(bookId);
+    this.save();
+  }
   delete(bookId: number) {
     const index = this.basketLine.findIndex(x => x.bookId == bookId);
     this.basketLine.splice(index, 1);

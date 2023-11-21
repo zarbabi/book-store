@@ -2,7 +2,6 @@
   <div class="card-header">
     سبد خرید
   </div>
-  
   <div class="card-body">
     <ng-container *ngIf="lines.length">
       <table class="table table-striped">
@@ -28,8 +27,10 @@
           <td>{{getBook(line.bookId).price}}</td>
           <td>{{line.count}}</td>
           <td>{{getBook(line.bookId).price * line.count}} </td>
-          <td>
+          <td >
             <button (click)="delete(line.bookId)" class="btn btn-danger btn-sm" type="button">حذف</button>
+            <button  (click)="deleteBook(line.bookId)" class="btn btn-primary btn-sm ms-3" type="button">-</button>
+            <button  (click)="addedBook(line.bookId)" class="btn btn-primary btn-sm ms-3" type="button">+</button>
           </td>
         </tr>
         </tbody>

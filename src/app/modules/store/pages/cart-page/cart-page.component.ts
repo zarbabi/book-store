@@ -26,4 +26,10 @@ export class CartPageComponent {
     return this.bookService.getBook(id)!;
   }
 
+  deleteBook(id:number){
+   return this.basketService.deleteOne(id);
+  }
+  addedBook(id:number){
+    return this.basketService.addedOne(id);
+  }
 }
