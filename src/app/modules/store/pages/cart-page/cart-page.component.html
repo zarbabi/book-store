@@ -3,7 +3,7 @@
     سبد خرید
   </div>
   <div class="card-body">
-    <ng-container *ngIf="lines.length">
+    <ng-container *ngIf="(basketItems$ | async)?.length">
       <table class="table table-striped">
         <thead>
         <tr>
@@ -19,18 +19,18 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let line of lines; index as i ">
+        <tr *ngFor="let basketItem of basketItems$ | async; index as i  ">
           <th scope="row"> {{i + 1}} </th>
-          <th><img alt="" class="img-thumbnail" src="{{getBook(line.bookId).image}}" style="height: 70px"></th>
-          <td>{{line.bookId}}</td>
-          <td>{{getBook(line.bookId).title}}</td>
-          <td>{{getBook(line.bookId).price}}</td>
-          <td>{{line.count}}</td>
-          <td>{{getBook(line.bookId).price * line.count}} </td>
-          <td >
-            <button (click)="delete(line.bookId)" class="btn btn-danger btn-sm" type="button">حذف</button>
-            <button  (click)="deleteBook(line.bookId)" class="btn btn-primary btn-sm ms-3" type="button">-</button>
-            <button  (click)="addedBook(line.bookId)" class="btn btn-primary btn-sm ms-3" type="button">+</button>
+          <th><img alt="" class="img-thumbnail" src="{{basketItem.book.image}}" style="height: 70px"></th>
+          <td>{{basketItem.book.id}}</td>
+          <td>{{basketItem.book.title}}</td>
+          <td>{{basketItem.book.price}}</td>
+          <td>{{basketItem.count}}</td>
+          <td>{{basketItem.book.price * basketItem.count}} </td>
+          <td>
+            <button (click)="delete(basketItem.bookId)" class="btn btn-danger btn-sm" type="button">حذف</button>
+            <button (click)="deleteBook(basketItem.bookId)" class="btn btn-primary btn-sm ms-3" type="button">-</button>
+            <button (click)="addBook(basketItem.bookId)" class="btn btn-primary btn-sm ms-3" type="button">+</button>
           </td>
         </tr>
         </tbody>
@@ -38,7 +38,7 @@
     </ng-container>
 
 
-    <ng-container *ngIf="!lines.length">
+    <ng-container *ngIf="!(basketItems$ | async)?.length">
       سبد خرید خالی است!
     </ng-container>
   </div>

@@ -17,8 +17,6 @@ export class NewsHttpService {
   getNews(id: number): Observable<Post> {
     return this.httpClient.get<Post>('https://jsonplaceholder.typicode.com/posts/' + id)
   }
-
-
 }
 
 export interface Post {

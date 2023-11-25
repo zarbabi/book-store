@@ -1,26 +1,27 @@
-import {createComponent, NgModule} from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { StorePageComponent } from './pages/store-page/store-page.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {StorePageComponent} from './pages/store-page/store-page.component';
 import {RouterModule, Routes} from "@angular/router";
-import { NewsSegmentComponent } from './components/news-segment/news-segment.component';
-import { BooksSegmentComponent } from './components/books-segment/books-segment.component';
-import { NewsCardComponent } from './components/news-card/news-card.component';
-import { NewsPageComponent } from './pages/news-page/news-page.component';
-import { StoreLayoutComponent } from './components/store-layout/store-layout.component';
+import {NewsSegmentComponent} from './components/news-segment/news-segment.component';
+import {BooksSegmentComponent} from './components/books-segment/books-segment.component';
+import {NewsCardComponent} from './components/news-card/news-card.component';
+import {NewsPageComponent} from './pages/news-page/news-page.component';
+import {StoreLayoutComponent} from './components/store-layout/store-layout.component';
 import {HttpClientModule} from "@angular/common/http";
-import { CartPageComponent } from './pages/cart-page/cart-page.component';
-import { BooksCardComponent } from './components/books-card/books-card.component';
-import { BookPageComponent } from './pages/book-page/book-page.component';
+import {CartPageComponent} from './pages/cart-page/cart-page.component';
+import {BooksCardComponent} from './components/books-card/books-card.component';
+import {BookPageComponent} from './pages/book-page/book-page.component';
 
 
-const routes:Routes=[{
-  path:'', component:StoreLayoutComponent,
+const routes: Routes = [{
+  path: '', component: StoreLayoutComponent,
   children: [
-    {path:'' ,component:StorePageComponent},
-    {path:'news/:id' ,component:NewsPageComponent},
-    {path:'cart', component:CartPageComponent},
-    {path:'book/:id', component:BookPageComponent},
-  ] }
+    {path: '', component: StorePageComponent},
+    {path: 'news/:id', component: NewsPageComponent},
+    {path: 'cart', component: CartPageComponent},
+    {path: 'book/:id', component: BookPageComponent},
+  ]
+}
 ];
 
 @NgModule({
@@ -41,4 +42,5 @@ const routes:Routes=[{
     HttpClientModule
   ]
 })
-export class StoreModule { }
+export class StoreModule {
+}

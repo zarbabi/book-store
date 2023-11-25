@@ -9,18 +9,13 @@ import {BooksService} from "../../services/books.service";
   styleUrls: ['./book-page.component.scss']
 })
 export class BookPageComponent {
-  item: Book | null = null;
+  item?: Book;
 
   constructor(router: ActivatedRoute, booksService: BooksService) {
 
     router.params.subscribe(params => {
       const id = params['id'];
-      const item = booksService.getBook(id);
-      if (item)
-        this.item = item;
-      else
-        alert('book not found!!');
-
+      booksService.getBook(id).subscribe(item => this.item = item);
     })
   }
 }

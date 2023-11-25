@@ -8,7 +8,6 @@ import {BasketService} from "../../services/basket.service";
 })
 export class StoreLayoutComponent {
   constructor(private basketService: BasketService) {
-
   }
 
   countBasket(): number {

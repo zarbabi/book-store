@@ -10,8 +10,12 @@ import {BasketService} from "../../services/basket.service";
 })
 export class BooksCardComponent {
   @Input({required: true})
-  data!: Book;
+  data!: Book ;
 
-  constructor( public basketService:BasketService) {
+  constructor( private basketService:BasketService) {
   }
+  add(id:number){
+    this.basketService.add(id);
+  }
+
 }

@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {NewsHttpService} from "../../services/news-http.service";
-import {BasketLine} from "../../../shared/models/basket-line";
+import {Component} from '@angular/core';
+import {BasketItem} from "../../../shared/models/basket-line";
 import {BasketService} from "../../services/basket.service";
-import {Book} from "../../../shared/models/book";
-import {BooksService} from "../../services/books.service";
+import {of} from "rxjs";
+
 
 @Component({
   selector: 'app-cart-page',
@@ -12,24 +10,29 @@ import {BooksService} from "../../services/books.service";
   styleUrls: ['./cart-page.component.scss']
 })
 export class CartPageComponent {
-  lines:BasketLine [] ;
+  basketItems$ = of([] as BasketItem[]);
 
-  constructor(public basketService:BasketService,private bookService:BooksService) {
-   this.lines= basketService.all();
+
+  constructor(public basketService: BasketService) {
+    this.fetchBooks();
   }
 
-  delete(id:number){
+  fetchBooks() {
+    this.basketItems$ = this.basketService.fetchBooks();
+  }
+
+  delete(id: number) {
     this.basketService.delete(id);
+    this.fetchBooks();
   }
 
-  getBook(id:number):Book{
-    return this.bookService.getBook(id)!;
+  deleteBook(id: number) {
+    this.basketService.deleteOne(id);
+    this.fetchBooks();
   }
 
-  deleteBook(id:number){
-   return this.basketService.deleteOne(id);
-  }
-  addedBook(id:number){
-    return this.basketService.addedOne(id);
+  addBook(id: number) {
+    this.basketService.addOne(id);
+    this.fetchBooks();
   }
 }

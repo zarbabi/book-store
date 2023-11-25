@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {News} from "../../../shared/models/news";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-news-card',
@@ -8,12 +7,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./news-card.component.scss']
 })
 export class NewsCardComponent {
-@Input({required: true})
+  @Input({required: true})
   data!: News;
 
-constructor(private router:Router){
-}
-addProductToCart(){
-this.router.navigate(['/cart']);
-}
+  constructor() {
+  }
+
 }

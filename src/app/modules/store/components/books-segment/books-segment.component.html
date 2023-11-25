@@ -2,8 +2,8 @@
   <div class="card-header">
     جدیدترین ها
   </div>
-  <div class="card-body " >
-<app-books-card *ngFor="let books of books" [data]="books"/>
+  <div class="card-body ">
+    <app-books-card *ngFor="let book of books$ | async" [data]="book"/>
   </div>
   <div class="card-footer text-body-secondary">
     2 days ago

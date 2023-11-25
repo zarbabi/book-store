@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Book} from "../../../shared/models/book";
-import {NewsHttpService} from "../../services/news-http.service";
 import {BooksService} from "../../services/books.service";
+import {of} from "rxjs";
 
 @Component({
   selector: 'app-books-segment',
@@ -9,8 +9,11 @@ import {BooksService} from "../../services/books.service";
   styleUrls: ['./books-segment.component.scss']
 })
 export class BooksSegmentComponent {
-books:Book[]=[];
-constructor( bookServices:BooksService ) {
-  this.books = bookServices.getLastBooks(4);
-}
+  books$ = of([] as Book[]);
+
+  constructor(private bookServices: BooksService) {
+    this.books$ = bookServices.getLastBooks(4);
+  }
+
+
 }
