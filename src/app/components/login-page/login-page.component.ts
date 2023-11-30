@@ -21,7 +21,6 @@ export class LoginPageComponent {
     if (this.userName == 'user') {
        // this.routeUrl = 'store';
       this.router.navigate(['/', 'store']);
-
     }
     if (this.userName == 'admin') {
        // this.routeUrl = 'panel';

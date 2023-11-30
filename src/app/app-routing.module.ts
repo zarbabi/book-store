@@ -7,11 +7,6 @@ const routes: Routes = [
   {path: 'store', loadChildren: () => import('./modules/store/store.module').then(m => m.StoreModule)},
   {path: 'panel', loadChildren: () => import('./modules/panel/panel.module').then(m => m.PanelModule)},
 
-  {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  }
 ];
 
 @NgModule({

@@ -14,7 +14,7 @@ import {BookPageComponent} from './pages/book-page/book-page.component';
 
 
 const routes: Routes = [{
-   path: '', component: StoreLayoutComponent,
+  path: '', component: StoreLayoutComponent,
   children: [
     {path: '', component: StorePageComponent},
     {path: 'news/:id', component: NewsPageComponent},
@@ -43,7 +43,8 @@ const routes: Routes = [{
     RouterModule.forChild(routes),
     HttpClientModule
   ],
-  exports:[RouterModule]
+  exports: [RouterModule,
+    HttpClientModule]
 })
 export class StoreModule {
 }

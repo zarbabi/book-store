@@ -1,5 +1,5 @@
 
-<!--<form>-->
+<form (ngSubmit)="checkUsername()">
   <div class="container  col-md-5" >
 
     <h1 class="h3 mb-3 fw-normal">ورود اطلاعات</h1>
@@ -10,8 +10,8 @@
     </div>
     <br>
 {{userName}}
-    <button class="btn btn-primary w-100 py-2" type="submit" (click)="checkUsername()" >ورود</button>
+    <button class="btn btn-primary w-100 py-2" type="submit"   >ورود</button>
 <!--    routerLink="{{routeUrl}}"-->
   </div>
-<!--</form>-->
+</form>
 <!--<router-outlet></router-outlet>-->
