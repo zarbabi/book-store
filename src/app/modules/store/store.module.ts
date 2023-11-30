@@ -14,13 +14,15 @@ import {BookPageComponent} from './pages/book-page/book-page.component';
 
 
 const routes: Routes = [{
-  path: '', component: StoreLayoutComponent,
+   path: '', component: StoreLayoutComponent,
   children: [
     {path: '', component: StorePageComponent},
     {path: 'news/:id', component: NewsPageComponent},
     {path: 'cart', component: CartPageComponent},
     {path: 'book/:id', component: BookPageComponent},
   ]
+
+
 }
 ];
 
@@ -40,7 +42,8 @@ const routes: Routes = [{
     CommonModule,
     RouterModule.forChild(routes),
     HttpClientModule
-  ]
+  ],
+  exports:[RouterModule]
 })
 export class StoreModule {
 }
