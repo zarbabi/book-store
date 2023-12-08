@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {CartPageComponent} from './pages/cart-page/cart-page.component';
 import {BooksCardComponent} from './components/books-card/books-card.component';
 import {BookPageComponent} from './pages/book-page/book-page.component';
+import {SharedModule} from "../shared/shared.module";
 
 
 const routes: Routes = [{
@@ -21,8 +22,6 @@ const routes: Routes = [{
     {path: 'cart', component: CartPageComponent},
     {path: 'book/:id', component: BookPageComponent},
   ]
-
-
 }
 ];
 
@@ -41,10 +40,9 @@ const routes: Routes = [{
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    HttpClientModule
+    SharedModule
   ],
-  exports: [RouterModule,
-    HttpClientModule]
+  exports: [RouterModule]
 })
 export class StoreModule {
 }

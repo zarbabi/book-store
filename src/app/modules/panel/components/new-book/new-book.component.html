@@ -1,0 +1,41 @@
+
+{{bookForm.value | json}}<br>
+{{bookForm.valid}}<br>
+{{books | json}}
+<form class="row g-3 container" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="col-md-6">
+    <label  class="form-label">نام کتاب</label>
+    <input type="text" class="form-control"  formControlName="title">
+  </div>
+  <div class="col-md-3">
+    <label  class="form-label">نام نویسنده</label>
+    <input type="text" class="form-control"  formControlName="author">
+  </div>
+  <div class="col-3">
+    <label  class="form-label">قیمت</label>
+    <input type="number" class="form-control" formControlName="price">
+  </div>
+  <div class="col-12">
+    <label  class="form-label">توضیحات </label>
+    <input type="text" class="form-control" formControlName="description">
+  </div>
+  <div class="col-md-6">
+    <label  class="form-label">عکس</label>
+    <input type="text" class="form-control"  >
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">State</label>
+    <select id="inputState" class="form-select">
+      <option selected>Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="inputZip">
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">ذخیره</button>
+  </div>
+</form>

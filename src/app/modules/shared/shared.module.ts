@@ -1,14 +1,17 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
+import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations: [
-    LoginPageComponent
-  ],
+  declarations: [],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
+  exports: [HttpClientModule,
+    ReactiveFormsModule]
 })
 export class SharedModule {
 }

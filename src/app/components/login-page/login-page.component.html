@@ -1,17 +1,16 @@
-
-<form (ngSubmit)="checkUsername()">
-  <div class="container  col-md-5" >
-
-    <h1 class="h3 mb-3 fw-normal">ورود اطلاعات</h1>
-    <br>
-    <div class="form-floating">
-      <input class="form-control" placeholder="UserName" type="text" (input)="getUser($any($event.target).value)" >
-      <label>نام کاربری</label>
+<form (ngSubmit)="checkUsername()" [formGroup]="loginForm">
+  <div class="container">
+    <div class="col-md-5">
+      <h1 class="h3 mb-3 fw-normal">ورود اطلاعات</h1>
+      <br>
+      <div class="form-floating">
+        <input formControlName="userName" class="form-control" placeholder="UserName" type="text">
+        <label>نام کاربری</label>
+      </div>
+      <br>
+      {{loginForm.value | json}}
+      <button class="btn btn-primary w-100 py-2" type="submit">ورود</button>
     </div>
-    <br>
-{{userName}}
-    <button class="btn btn-primary w-100 py-2" type="submit"   >ورود</button>
-<!--    routerLink="{{routeUrl}}"-->
   </div>
 </form>
-<!--<router-outlet></router-outlet>-->
+

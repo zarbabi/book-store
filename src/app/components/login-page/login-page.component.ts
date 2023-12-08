@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from "@angular/router";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-login-page',
@@ -7,23 +8,22 @@ import {Router} from "@angular/router";
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent {
-  userName: string = '';
-  routeUrl: string = '';
+  loginForm: FormGroup;
 
-  constructor(public router: Router) {
+  constructor(public router: Router, formBuilder: FormBuilder) {
+    this.loginForm = formBuilder.group({
+      userName: ['user']
+    })
   }
 
-  getUser(text: string) {
-    this.userName = text;
-  }
 
   checkUsername() {
-    if (this.userName == 'user') {
-       // this.routeUrl = 'store';
-      this.router.navigate(['/', 'store']);
+    if (this.loginForm.value.userName == 'user') {
+      // this.routeUrl = 'store';
+      this.router.navigate(['/']);
     }
-    if (this.userName == 'admin') {
-       // this.routeUrl = 'panel';
+    if (this.loginForm.value.userName == 'admin') {
+      // this.routeUrl = 'panel';
       this.router.navigate(['/', 'panel']);
     }
   }
