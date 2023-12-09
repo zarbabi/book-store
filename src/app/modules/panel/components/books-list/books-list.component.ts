@@ -1,8 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {Book} from "../../../shared/models/book";
 import {BooksService} from "../../../store/services/books.service";
-import {ActivatedRoute} from "@angular/router";
-import {of} from "rxjs";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-books-list',
@@ -10,14 +9,10 @@ import {of} from "rxjs";
   styleUrls: ['./books-list.component.scss']
 })
 export class BooksListComponent {
-  // @Input({required: true})
-  // data?: Book ;
-  books$ = of([] as Book[]);
-  constructor(booksService:BooksService,router:ActivatedRoute) {
-    // router.params.subscribe(params => {
-    //   const id = params['id'];
-    //   booksService.getBook(id).subscribe(item => this.data = item);
-    // })
-    this.books$ = booksService.getLastBooks(4);
+
+  books$: Observable<Book[]>;
+
+  constructor(booksService: BooksService) {
+    this.books$ = booksService.getLastBooks();
   }
 }

@@ -1,41 +1,27 @@
-
 {{bookForm.value | json}}<br>
 {{bookForm.valid}}<br>
-{{books | json}}
-<form class="row g-3 container" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="bookForm" class="row g-3 container">
   <div class="col-md-6">
-    <label  class="form-label">نام کتاب</label>
-    <input type="text" class="form-control"  formControlName="title">
+    <label class="form-label">نام کتاب</label>
+    <input class="form-control" formControlName="title" type="text">
   </div>
   <div class="col-md-3">
-    <label  class="form-label">نام نویسنده</label>
-    <input type="text" class="form-control"  formControlName="author">
+    <label class="form-label">نام نویسنده</label>
+    <input class="form-control" formControlName="author" type="text">
   </div>
   <div class="col-3">
-    <label  class="form-label">قیمت</label>
-    <input type="number" class="form-control" formControlName="price">
+    <label class="form-label">قیمت</label>
+    <input class="form-control" formControlName="price" type="number">
   </div>
   <div class="col-12">
-    <label  class="form-label">توضیحات </label>
-    <input type="text" class="form-control" formControlName="description">
+    <label class="form-label">توضیحات </label>
+    <textarea class="form-control" formControlName="description" type="text"></textarea>
   </div>
   <div class="col-md-6">
-    <label  class="form-label">عکس</label>
-    <input type="text" class="form-control"  >
+    <label class="form-label">عکس</label>
+    <input class="form-control" type="text">
   </div>
-  <div class="col-md-4">
-    <label for="inputState" class="form-label">State</label>
-    <select id="inputState" class="form-select">
-      <option selected>Choose...</option>
-      <option>...</option>
-    </select>
-  </div>
-  <div class="col-md-2">
-    <label for="inputZip" class="form-label">Zip</label>
-    <input type="text" class="form-control" id="inputZip">
-  </div>
-
   <div class="col-12">
-    <button type="submit" class="btn btn-primary">ذخیره</button>
+    <button class="btn btn-primary" type="submit">ذخیره</button>
   </div>
 </form>

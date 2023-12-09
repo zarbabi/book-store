@@ -1,25 +1,30 @@
 import {Injectable} from '@angular/core';
 import {Book} from "../../shared/models/book";
-import {of} from "rxjs";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
+  private id: number = books.length;
 
   constructor() {
   }
 
-  getBooks() {
-    return of(books)
+  generateNewId(): number {
+    return ++this.id;
   }
 
-  getLastBooks(count: number = 4){
-    return of( books.slice(0, count));
+  getLastBooks(count: number = 10): Observable<Book[]> {
+    return of(books.slice(0, count));
   }
 
-  getBook(id: number){
+  getBook(id: number): Observable<Book | undefined> {
     return of(books.find(x => x.id == id));
+  }
+
+  addBook(book: Book) {
+    books.push(book);
   }
 }
 
