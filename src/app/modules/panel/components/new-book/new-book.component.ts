@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Book} from "../../../shared/models/book";
 import {BooksService} from "../../../store/services/books.service";
 
@@ -10,18 +10,19 @@ import {BooksService} from "../../../store/services/books.service";
 })
 export class NewBookComponent {
 
-  bookForm = new FormGroup({
-    title: new FormControl('', [Validators.required]),
-    price: new FormControl(null, [Validators.required, Validators.min(1)]),
-    author: new FormControl(),
-    description: new FormControl()
-  });
+  bookForm: FormGroup;
 
-  constructor(private booksService: BooksService) {
+  constructor(private booksService: BooksService, fb: FormBuilder) {
+    this.bookForm = fb.group({
+      title: ['', Validators.required],
+      price: [null, [Validators.required, Validators.min(1)]],
+      author: [],
+      description: []
+
+    })
   }
 
   onSubmit() {
-
     if (this.bookForm.invalid) {
       alert('please fill the form');
       return;
