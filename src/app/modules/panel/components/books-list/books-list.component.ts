@@ -12,7 +12,12 @@ export class BooksListComponent {
 
   books$: Observable<Book[]>;
 
-  constructor(booksService: BooksService) {
+  constructor(public booksService: BooksService) {
     this.books$ = booksService.getLastBooks();
+  }
+
+  delete(id: number) {
+    this.booksService.deleteBook(id);
+    this.books$ = this.booksService.getLastBooks();
   }
 }

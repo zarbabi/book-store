@@ -26,6 +26,18 @@ export class BooksService {
   addBook(book: Book) {
     books.push(book);
   }
+
+  editBook(id: number, updatedBook: Book) {
+    let book = books.find(x => x.id == id);
+    if (book) {
+      book = Object.assign(book, updatedBook);
+    }
+  }
+
+  deleteBook(id: number) {
+    const index = books.findIndex(x => x.id = id);
+    books.splice(index, 1)
+  }
 }
 
 

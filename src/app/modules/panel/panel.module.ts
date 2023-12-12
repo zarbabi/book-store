@@ -11,7 +11,8 @@ const routes: Routes = [
     path: '', component: PanelLayoutComponent,
     children: [
       {path: 'books', component: BooksListComponent},
-      {path: 'new', component: NewBookComponent}
+      {path: 'books/new', component: NewBookComponent},
+      {path: 'books/:id', component: NewBookComponent},
     ]
   }
 ];

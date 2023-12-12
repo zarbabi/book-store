@@ -9,16 +9,15 @@
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a [routerLink]="['/panel/new']" aria-current="page" class="nav-link link-body-emphasis" >
+          <a [routerLink]="['/panel/books/new']" aria-current="page" class="nav-link link-body-emphasis">
             <svg class="bi pe-none me-2" height="16" width="16">
             </svg>
             اضافه نمودن
           </a>
         </li>
         <li>
-          <a  [routerLink]="['/panel/books']" class="nav-link link-body-emphasis" href="#">
+          <a [routerLink]="['/panel/books']" class="nav-link link-body-emphasis" href="#">
             <svg class="bi pe-none me-2" height="16" width="16">
-              <!--          <use xlink:href="#speedometer2"></use>-->
             </svg>
             لیست کتابها
           </a>
@@ -26,9 +25,11 @@
       </ul>
       <hr>
       <div class="dropdown">
-        <a aria-expanded="false" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+        <a aria-expanded="false"
+           class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
            data-bs-toggle="dropdown" href="#">
-          <img alt="" class="rounded-circle me-2" height="32" src="https://avatars.githubusercontent.com/u/87188820?v=4" width="32">
+          <img alt="" class="rounded-circle me-2" height="32" src="https://avatars.githubusercontent.com/u/87188820?v=4"
+               width="32">
           <strong>mdo</strong>
         </a>
         <ul class="dropdown-menu text-small shadow" style="">
